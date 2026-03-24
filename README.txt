@@ -19,6 +19,8 @@ F – сохранение текущего состояния
 + / - – регулировка скорости симуляции
 Q – выход из игры
 
+
+
 Welcome to Game of Life — the classic cellular automaton brought to life on your screen! Watch as simple cells, alive or dead, create mesmerizing patterns, evolve, die, and give birth to new forms right before your eyes.
 
 Features
