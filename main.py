@@ -36,7 +36,7 @@ def main() -> None:
 
         elif screen_type == disp.SCREEN_PRESET_SELECT:
             buttons = disp.create_buttons(
-                [ru.buttons["GASPERS_GUN"], ru.buttons["NO_PRESET"]], w
+                [ru.buttons["GASPERS_GUN"], ru.buttons["GLIDER"], ru.buttons["NO_PRESET"]], w
             )
 
         elif screen_type == disp.SCREEN_COLOR_SELECT:
@@ -118,14 +118,21 @@ def main() -> None:
                             if b["text"] == ru.buttons["GASPERS_GUN"]:
                                 use_preset = True
                                 try:
-                                    grid = gr.load_grid_from_file("gaspers_gun")
+                                    grid = gr.load_grid_from_file("gaspers_gun.txt")
                                     rows, cols = len(grid), len(grid[0])
 
                                 except FileNotFoundError:
-                                    print("Файл с ружьём Гаспера не найден. Использую стандартную сетку.")
+                                    print(ru.errors["NOT_GASPERS_GUN"])
                                     grid = gr.random_grid(rows, cols, 0.3)
-                                except Exception as e:
-                                    print(f"Ошибка при загрузке пресета: {e}")
+
+                            elif b["text"] == ru.buttons["GLIDER"]:
+                                use_preset = True
+                                try:
+                                    grid = gr.load_grid_from_file("glider.txt")
+                                    rows, cols = len(grid), len(grid[0])
+
+                                except FileNotFoundError:
+                                    print(ru.errors["NOT_GLIDER"])
                                     grid = gr.random_grid(rows, cols, 0.3)
 
                                 screen_type = disp.SCREEN_COLOR_SELECT
